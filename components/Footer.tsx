@@ -24,10 +24,6 @@ export default function Footer() {
 
           <div className="footer-contact">
             <div>
-              <span>Call</span>
-              <b>(000) 000-0000</b>
-            </div>
-            <div>
               <span>Email</span>
               <b>info@wallynassif.com</b>
             </div>

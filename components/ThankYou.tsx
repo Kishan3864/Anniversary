@@ -22,10 +22,10 @@ export default function ThankYou() {
         </p>
 
         <div className="cta-row">
-          <a className="btn btn-gold" href="tel:+10000000000">
+          <a className="btn btn-gold" href="#contact">
             ► Request a Free Estimate
           </a>
-          <a className="btn btn-electric" href="tel:+10000000000">
+          <a className="btn btn-electric" href="#contact">
             ⚡ Emergency Service
           </a>
           <a className="btn btn-outline" href="#services">
