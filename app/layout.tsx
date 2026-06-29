@@ -17,24 +17,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Wally Nassif Electrical Contracting | Celebrating 50 Years • 1976–2026",
+  title:
+    "Wally Nassif Electrical Contracting Service | Celebrating 50 Years · 1976–2026",
   description:
-    "For five decades, Wally Nassif has delivered expert electrical solutions to homeowners, businesses, and industry. Celebrating 50 years of trust, craftsmanship, and quality workmanship — 1976 to 2026.",
+    "Powering South Florida with reliability and expertise since 1976. Wally Nassif Electrical Contracting Service — licensed, insured & bonded electrical contractor (EC13001410) for residential, commercial & industrial. Generators, EV charging, panel upgrades & 24/7 emergency service. Call (561) 582-2600.",
   keywords: [
-    "electrical contractor",
-    "master electrician",
-    "50 years",
-    "generator systems",
-    "EV charging",
+    "Wally Nassif Electrical",
+    "Nassif Electric",
+    "electrician West Palm Beach",
+    "South Florida electrical contractor",
+    "generator installation",
+    "EV charger installation",
+    "panel upgrades",
     "commercial electrical",
-    "residential electrical",
-    "Wally Nassif",
+    "industrial electrical",
+    "EC13001410",
   ],
   openGraph: {
-    title: "Wally Nassif Electrical Contracting — 50 Years of Excellence",
+    title:
+      "Wally Nassif Electrical Contracting Service — Celebrating 50 Years (1976–2026)",
     description:
-      "Building Trust. Powering Communities. Creating Lasting Relationships. Celebrating 50 years, 1976–2026.",
+      "The Trusted Electrician for South Florida since 1976. Reliable • Licensed • Experienced. Call (561) 582-2600.",
     type: "website",
+    locale: "en_US",
   },
 };
 

@@ -1,4 +1,3 @@
-import Emblem from "./Emblem";
 import Reveal from "./Reveal";
 
 export default function Legacy() {
@@ -6,35 +5,40 @@ export default function Legacy() {
     <section className="section legacy" id="legacy">
       <div className="container legacy-grid">
         <Reveal className="legacy-figure">
-          <Emblem size={230} id="legacy" spin={false} />
+          <div className="logo-chip">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/wally-nassif-logo.png" alt="Wally Nassif Electrical Contracting Service logo" width={866} height={274} />
+          </div>
           <div className="badge-float">
-            <b>1976</b>
-            <span>Where it all began</span>
+            <b>Since 1976</b>
+            <span>The Trusted Electrician</span>
           </div>
         </Reveal>
 
         <Reveal delay={120}>
-          <span className="eyebrow">Our Story</span>
-          <h2>A Legacy Built One Customer at a Time</h2>
+          <span className="eyebrow on-dark">Our Story</span>
+          <h2>Built on Trust, One Project at a Time</h2>
           <p>
-            Since beginning his electrical career in 1976, Wally Nassif has
-            dedicated his life to delivering safe, reliable, and professional
-            electrical installations.
+            Since 1976, Wally Nassif Electrical Contracting Service has powered
+            South Florida with reliability and expertise. What began with a
+            commitment to honest, quality workmanship has grown into a
+            full-service electrical contractor trusted by homeowners, builders,
+            architects, and businesses throughout the region.
           </p>
           <p>
-            From small residential repairs to complex industrial power
-            distribution systems, every project has been completed with the
-            same commitment to excellence — the same care, whether it&apos;s a
-            single outlet or an entire facility.
+            From reviewing blueprints on new construction to installing
+            generators, EV chargers, and complex industrial power systems, every
+            job is completed to the same standard — safe, code-compliant, and
+            done right the first time.
           </p>
           <p>
-            Today, that commitment continues with modern technology while
-            preserving the traditional values that have defined our company for
-            over five decades.
+            As a Florida Statewide Licensed Unlimited Electrical Contractor
+            (EC13001410), we pair five decades of hands-on experience with the
+            latest technology to keep your home or business powered and protected.
           </p>
           <div className="signature">
             Wally Nassif
-            <span>Master Electrical Contractor · Est. 1976</span>
+            <span>Founder · Licensed Master Electrical Contractor</span>
           </div>
         </Reveal>
       </div>

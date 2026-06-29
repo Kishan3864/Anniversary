@@ -3,34 +3,41 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer-top">
-          <div className="brand" style={{ alignItems: "center" }}>
-            <svg className="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="fbm" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#f4d778" />
-                  <stop offset="100%" stopColor="#b38728" />
-                </linearGradient>
-              </defs>
-              <circle cx="24" cy="24" r="22" stroke="url(#fbm)" strokeWidth="1.6" />
-              <path d="M26 9 L14 27 H22 L20 39 L34 19 H25 L29 9 Z" fill="url(#fbm)" />
-            </svg>
-            <span>
-              <span className="brand-name">Wally Nassif Electrical</span>
-              <span className="brand-sub" style={{ display: "block" }}>
-                Master Electrical Contractor · Est. 1976
-              </span>
+          <div>
+            <span className="footer-logo-chip">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/wally-nassif-logo.png" alt="Wally Nassif Electrical Contracting Service" width={866} height={274} />
             </span>
+            <p className="intro">
+              Powering South Florida with reliability and expertise since 1976.
+              Residential, commercial &amp; industrial electrical contracting you
+              can trust — from planning to power-on.
+            </p>
+            <p className="lic">
+              FL Statewide Licensed Unlimited Electrical Contractor · EC13001410
+              <br />
+              Licensed · Insured · Bonded
+            </p>
           </div>
 
-          <div className="footer-contact">
-            <div>
-              <span>Email</span>
-              <b>info@wallynassif.com</b>
-            </div>
-            <div>
-              <span>Service Area</span>
-              <b>Florida &amp; Beyond</b>
-            </div>
+          <div className="footer-col">
+            <h4>Contact</h4>
+            <a href="https://maps.google.com/?q=6112+Washington+Rd,+West+Palm+Beach,+FL+33405" target="_blank" rel="noopener noreferrer">
+              6112 Washington Rd
+              <br />
+              West Palm Beach, FL 33405
+            </a>
+            <a href="tel:+15615822600">(561) 582-2600</a>
+            <a href="mailto:info@nassifelectric.com">info@nassifelectric.com</a>
+          </div>
+
+          <div className="footer-col">
+            <h4>Service Area &amp; Hours</h4>
+            <p>Serving Greater South Florida</p>
+            <p>Palm Beach County &amp; surrounding areas</p>
+            <p style={{ color: "var(--green-300)", fontWeight: 700 }}>
+              ⚡ 24/7 Emergency Service Available
+            </p>
           </div>
         </div>
 
@@ -39,7 +46,7 @@ export default function Footer() {
             © 1976–2026 Wally Nassif Electrical Contracting Service · Celebrating
             50 Years of Excellence
           </span>
-          <span>Licensed · Insured · Code Compliant</span>
+          <span>The Trusted Electrician · Reliable • Licensed • Experienced</span>
         </div>
       </div>
     </footer>

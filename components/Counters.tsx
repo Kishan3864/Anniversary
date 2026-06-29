@@ -11,10 +11,10 @@ type Stat = {
 };
 
 const STATS: Stat[] = [
-  { value: 50, label: "Years of Experience" },
-  { value: "Thousands", label: "Satisfied Customers" },
-  { value: "Millions", label: "Feet of Wire Installed" },
-  { value: "Countless", label: "Problems Solved" },
+  { value: 50, suffix: "+", label: "Years of Experience" },
+  { value: "1976", label: "Serving Since" },
+  { value: "24/7", label: "Emergency Service" },
+  { value: 100, suffix: "%", label: "Licensed & Insured" },
 ];
 
 function CountUp({ target }: { target: number }) {

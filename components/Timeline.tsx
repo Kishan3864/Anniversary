@@ -12,38 +12,38 @@ type Milestone = {
 const MILESTONES: Milestone[] = [
   {
     year: "1976",
-    title: "Started Electrical Apprenticeship",
-    desc: "Wally Nassif enters the electrical trade, beginning a lifelong pursuit of the craft.",
+    title: "Started in the Electrical Trade",
+    desc: "Wally Nassif enters the electrical trade, beginning a lifelong commitment to safe, quality workmanship.",
   },
   {
     year: "1984",
     title: "Master Electrician",
-    desc: "Years of hands-on work culminate in the master electrician credential.",
+    desc: "Years of hands-on work earn the master electrician credential.",
   },
   {
     year: "1992",
-    title: "Florida State Certified Electrical Contractor",
-    desc: "Officially licensed to take on larger, more complex projects across the state.",
+    title: "FL Certified Electrical Contractor",
+    desc: "Licensed to take on larger residential, commercial, and industrial projects across Florida (EC13001410).",
   },
   {
     year: "2000+",
     title: "Commercial & Industrial Expansion",
-    desc: "Scaling into commercial buildouts and industrial power distribution systems.",
+    desc: "Growing into commercial build-outs and industrial power distribution systems.",
   },
   {
     year: "2015+",
     title: "Generator Sales & Service",
-    desc: "Adding standby power solutions to keep homes and businesses running through any outage.",
+    desc: "Adding turnkey standby generator solutions to keep homes and businesses running through any outage.",
   },
   {
     year: "2020+",
     title: "EV Charging Infrastructure",
-    desc: "Embracing the future with electric-vehicle charging for homes and commercial sites.",
+    desc: "Installing residential and commercial EV charging stations for the road ahead.",
   },
   {
     year: "2026",
-    title: "Celebrating 50 Years in the Trade",
-    desc: "Half a century of trusted electrical excellence — and still building the future.",
+    title: "Celebrating 50 Years",
+    desc: "Half a century of powering South Florida — and still building the future.",
     final: true,
   },
 ];
@@ -94,7 +94,7 @@ export default function Timeline() {
               style={{ transitionDelay: `${i * 140}ms` }}
             >
               <span className={`tl-dot ${m.final ? "final" : ""}`} aria-hidden="true" />
-              <div className={`tl-card ${m.final ? "gold" : ""}`}>
+              <div className={`tl-card ${m.final ? "green" : ""}`}>
                 <div className="tl-year">{m.year}</div>
                 <div className="tl-title">{m.title}</div>
                 <div className="tl-desc">{m.desc}</div>

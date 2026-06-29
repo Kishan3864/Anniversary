@@ -1,7 +1,10 @@
-# Wally Nassif Electrical Contracting — 50th Anniversary Homepage
+# Wally Nassif Electrical Contracting Service — 50th Anniversary Site
 
-A premium, single-page anniversary website built with **Next.js 15 (App Router) + TypeScript**.
-Celebrating **50 Years of Electrical Excellence · 1976–2026**.
+A premium, single-page 50th-anniversary website (**1976–2026**) built with
+**Next.js 15 (App Router) + TypeScript**, styled to match the company's real
+brand identity. All content — logo, colors, services, contact details, and
+license — is the company's genuine information (sourced from
+[nassifelectric.com](https://www.nassifelectric.com/)).
 
 ## Run it
 
@@ -10,42 +13,58 @@ npm install
 npm run dev      # http://localhost:3000  (development)
 ```
 
-For a production build:
+Production (static export → `out/`):
 
 ```bash
-npm run build
-npm run start
+npm run build    # outputs a fully static site into ./out
 ```
 
-## Design
+The site is a **static export** (`output: "export"`) — `out/` can be served by
+any web server (nginx/Apache/CDN), no Node process required.
 
-- **Palette:** Deep Navy Blue (trust) · Metallic Gold (anniversary) · White · Electric Blue accents — defined as CSS variables in [app/globals.css](app/globals.css).
-- **Fonts:** Playfair Display (elegant serif headings) + Inter (clean sans body), loaded via `next/font`.
-- **Anniversary badge / "50 Years" gold seal:** the animated SVG emblem in [components/Emblem.tsx](components/Emblem.tsx). A compact gold pill badge also lives in the header.
+## Brand identity (from the official logo)
+
+- **Royal blue `#0909D8`** — primary
+- **Bright green `#4AE224`** — accent / anniversary highlight (replaces the old gold)
+- **White**
+- Real logo: [public/wally-nassif-logo.png](public/wally-nassif-logo.png)
+- Fonts: Playfair Display (headings) + Inter (body)
+
+## Real business information used
+
+- **Wally Nassif Electrical Contracting Service** — "The Trusted Electrician"
+- Tagline: *Powering South Florida with Reliability and Expertise Since 1976*
+- Founder: **Wally Nassif** · Established **1976**
+- Address: **6112 Washington Rd, West Palm Beach, FL 33405**
+- Phone: **(561) 582-2600** · Email: **info@nassifelectric.com**
+- License: **EC13001410** — Florida Statewide Licensed Unlimited Electrical
+  Contractor · Licensed · Insured · Bonded
+- Service area: Greater South Florida (Palm Beach County & surrounding)
 
 ## Sections (in order)
 
-1. **Hero** — gold "50 Years" emblem, headline, tagline, 3 CTAs (Free Estimate / Emergency / Commercial & Industrial)
-2. **Anniversary Banner** — 1976–2026 · Half a Century of Experience
-3. **Legacy** — "A Legacy Built One Customer at a Time" story
-4. **Services** — Generators, EV Charging, Service Upgrades, New Construction, Remodeling, Maintenance, Emergency Repairs
-5. **Timeline** — animated 1976 → 2026 milestones (the visual centerpiece)
-6. **Why Clients Choose Us** — checklist
-7. **Counters** — animated count-up numbers
-8. **Experience quote + Thank You CTA**
-9. **Footer** — contact details
+1. **Header** — topbar (phone/email/license), real logo, nav, Request Service CTA
+2. **Hero** — "Celebrating 50 Years of Powering South Florida" + 50-Years emblem
+3. **Anniversary banner** — 1976–2026
+4. **Our Story** — real company history + logo
+5. **Services** — the 8 real services with real descriptions & bullet points
+6. **Timeline** — 1976 → 2026 milestones (animated)
+7. **Why Choose Us** — the real "why choose us" points
+8. **By the Numbers** — 50+ years, since 1976, 24/7, 100% licensed
+9. **Experience quote + Request Service CTA** (with click-to-call)
+10. **Footer** — real address, contact, license, service area
 
-## Things to customize for the client
+## Optional enhancements for later
 
-These are placeholders — search and replace before going live:
-
-- **Phone / email / service area** — in [components/Footer.tsx](components/Footer.tsx) and the `tel:` links in [components/ThankYou.tsx](components/ThankYou.tsx) and [components/Header.tsx](components/Header.tsx).
-- **Hero photo (optional):** the hero currently uses a self-contained navy + circuit-grid + gold-glow background (no broken image links). To use a real photo of crew/switchgear/EV chargers, drop it at `public/hero.jpg` and uncomment the `style={{ backgroundImage: "url(/hero.jpg)" }}` line in [components/Hero.tsx](components/Hero.tsx).
-- **Real photos** can also replace the emblem placeholder in the Legacy section if desired.
-- **Dates in the timeline** ([components/Timeline.tsx](components/Timeline.tsx)) — confirm the exact milestone years with the client.
+- **Hero photo:** the hero uses a self-contained brand-blue background (no broken
+  image links). To use a real photo of the crew / switchgear / EV install, drop
+  it at `public/hero.jpg` and uncomment the `backgroundImage` line in
+  [components/Hero.tsx](components/Hero.tsx).
+- **Testimonials / Featured Projects:** can be added once real, approved customer
+  quotes and project photos are supplied (intentionally not fabricated).
 
 ## Notes
 
-- Fully responsive (desktop → mobile); the timeline collapses to a single rail on small screens.
-- Respects `prefers-reduced-motion`.
-- All content renders server-side (statically prerendered) for fast loads and SEO.
+- Fully responsive; timeline collapses to a single rail on mobile.
+- Respects `prefers-reduced-motion`; SEO metadata + branded favicon included.
+- All links are real: `tel:` and `mailto:` use the real phone/email.
