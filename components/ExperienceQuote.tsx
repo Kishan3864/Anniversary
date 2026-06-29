@@ -10,7 +10,7 @@ export default function ExperienceQuote() {
             <span className="stack">Technology changes.</span>
             <span className="stack">Electrical codes evolve.</span>
             <span className="stack">Equipment advances.</span>
-            <span className="stack green-text" style={{ marginTop: "0.6rem", display: "block" }}>
+            <span className="stack blue-text" style={{ marginTop: "0.6rem", display: "block" }}>
               But experience is earned — through decades of solving problems,
               building trust, and standing behind every installation.
             </span>

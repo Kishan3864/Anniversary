@@ -16,7 +16,7 @@ export default function Legacy() {
         </Reveal>
 
         <Reveal delay={120}>
-          <span className="eyebrow on-dark">Our Story</span>
+          <span className="eyebrow">Our Story</span>
           <h2>Built on Trust, One Project at a Time</h2>
           <p>
             Since 1976, Wally Nassif Electrical Contracting Service has powered

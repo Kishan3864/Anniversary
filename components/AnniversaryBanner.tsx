@@ -5,10 +5,10 @@ export default function AnniversaryBanner() {
     <section className="banner">
       <Reveal className="container">
         <div className="stars" aria-hidden="true">★ ★ ★</div>
-        <p className="eyebrow center on-dark">
+        <p className="eyebrow center">
           Celebrating 50 Years in the Electrical Trade
         </p>
-        <div className="years green-text">1976 – 2026</div>
+        <div className="years">1976 – 2026</div>
         <h2>Half a Century of Powering South Florida</h2>
         <p>
           Five decades of continuous electrical experience — residential,
