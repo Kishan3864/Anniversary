@@ -33,7 +33,7 @@ function Check() {
   return (
     <span className="why-check" aria-hidden="true">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M5 13l4 4L19 7" stroke="#0909d8" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </span>
   );

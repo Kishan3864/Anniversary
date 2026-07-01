@@ -1,6 +1,20 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+import Bolt from "./Bolt";
 import Emblem from "./Emblem";
 
 export default function Hero() {
+  const [atTop, setAtTop] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setAtTop(window.scrollY < 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section className="hero" id="top">
       {/* Layered electrical-themed background. Drop a real photo at
@@ -17,7 +31,7 @@ export default function Hero() {
         <div>
           <span className="since">Serving South Florida Since 1976</span>
           <h1>
-            Celebrating <span className="green-text">50 Years</span>
+            Celebrating <span className="gold-text">50 Years</span>
             <span className="line2">of Powering South Florida</span>
           </h1>
           <p className="hero-tagline">
@@ -37,7 +51,8 @@ export default function Hero() {
               Request Service
             </a>
             <a className="btn btn-blue" href="tel:+15615822600">
-              ⚡ Emergency Call 24/7
+              <Bolt width={13} height={20} />
+              Emergency Call 24/7
             </a>
             <a className="btn btn-outline" href="#services">
               Our Services
@@ -66,7 +81,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="scroll-cue" aria-hidden="true">
+      <div className={`scroll-cue ${atTop ? "" : "is-hidden"}`} aria-hidden="true">
         <span className="mouse" />
         Scroll
       </div>
