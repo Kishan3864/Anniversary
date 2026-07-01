@@ -6,14 +6,15 @@ export default function ExperienceQuote() {
       <Reveal className="container">
         <div className="quote-mark" aria-hidden="true">&ldquo;</div>
         <blockquote>
-          <p>
-            <span className="stack">Technology changes.</span>
-            <span className="stack">Electrical codes evolve.</span>
-            <span className="stack">Equipment advances.</span>
-            <span className="stack blue-text" style={{ marginTop: "0.6rem", display: "block" }}>
-              But experience is earned — through decades of solving problems,
-              building trust, and standing behind every installation.
-            </span>
+          <p className="q-lead">
+            <span>Technology changes.</span>
+            <span>Electrical codes evolve.</span>
+            <span>Equipment advances.</span>
+          </p>
+          <span className="q-divider" aria-hidden="true" />
+          <p className="q-main">
+            But experience is earned — through decades of solving problems,
+            building trust, and standing behind every installation.
           </p>
         </blockquote>
         <p className="punch">That&apos;s what 50 years represents.</p>
