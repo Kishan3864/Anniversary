@@ -1003,3 +1003,129 @@ ul { list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   .celebrate-canvas { display: none; }
 }
+
+/* ============================================================
+   ADMIN — site control (maintenance lock)
+   ============================================================ */
+.admin {
+  min-height: 100svh;
+  display: grid; place-items: center;
+  padding: 2rem 1.25rem;
+  color: var(--white);
+  background:
+    radial-gradient(820px 560px at 80% 15%, rgba(74, 226, 36, 0.12), transparent 60%),
+    radial-gradient(760px 640px at 8% 92%, rgba(31, 70, 160, 0.26), transparent 62%),
+    var(--grad-deep);
+}
+.admin-card {
+  width: 100%; max-width: 400px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(74, 226, 36, 0.26);
+  border-radius: 18px;
+  padding: clamp(1.6rem, 5vw, 2.4rem);
+  box-shadow: 0 30px 70px -30px rgba(4, 4, 42, 0.7);
+  text-align: center;
+}
+.admin-badge {
+  width: 54px; height: 54px; margin: 0 auto 1rem;
+  display: grid; place-items: center; border-radius: 14px;
+  background: rgba(74, 226, 36, 0.12);
+  border: 1px solid rgba(74, 226, 36, 0.34);
+}
+.admin-card h1 {
+  font-family: var(--font-serif); font-size: 1.6rem; margin: 0 0 1.4rem;
+}
+.admin-login { display: flex; flex-direction: column; gap: 0.7rem; text-align: left; }
+.admin-login label {
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(228, 233, 255, 0.72);
+}
+.admin-login input {
+  width: 100%; padding: 0.8rem 0.95rem; border-radius: 10px;
+  background: rgba(4, 4, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff; font-size: 1rem; outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.admin-login input:focus {
+  border-color: rgba(74, 226, 36, 0.6);
+  box-shadow: 0 0 0 3px rgba(74, 226, 36, 0.15);
+}
+.admin-login button,
+.admin-panel button.admin-switch { font-family: inherit; }
+.admin-login button {
+  margin-top: 0.4rem; padding: 0.85rem 1rem; border: none; border-radius: 10px;
+  background: var(--grad-green, linear-gradient(135deg, #4ae224, #36c70f));
+  color: #05230a; font-weight: 700; font-size: 1rem; cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+.admin-login button:disabled { opacity: 0.55; cursor: not-allowed; }
+.admin-login button:not(:disabled):hover { transform: translateY(-1px); }
+
+.admin-panel { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
+.admin-switch {
+  display: inline-flex; align-items: center; gap: 0.9rem;
+  background: none; border: none; padding: 0; cursor: pointer;
+}
+.admin-switch:disabled { opacity: 0.6; cursor: wait; }
+.admin-switch-track {
+  position: relative; width: 68px; height: 36px; border-radius: 999px;
+  background: rgba(74, 226, 36, 0.25); border: 1px solid rgba(74, 226, 36, 0.6);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.admin-switch.is-locked .admin-switch-track {
+  background: rgba(226, 74, 74, 0.28); border-color: rgba(226, 74, 74, 0.7);
+}
+.admin-switch-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #4ae224; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.admin-switch.is-locked .admin-switch-thumb { transform: translateX(32px); background: #e24a4a; }
+.admin-switch-label {
+  font-weight: 700; font-size: 1.1rem; color: #eef2fb;
+  min-width: 5.5ch; text-align: left;
+}
+.admin-status {
+  margin: 0; font-size: 0.9rem; line-height: 1.5;
+  color: var(--green-400);
+}
+.admin-status.is-locked { color: #ff9a9a; }
+.admin-error { margin: 0; color: #ff9a9a; font-size: 0.85rem; }
+
+/* ============================================================
+   MAINTENANCE — full-screen lock shown to visitors
+   ============================================================ */
+.maintenance {
+  position: fixed; inset: 0; z-index: 100000;
+  display: grid; place-items: center;
+  padding: 2rem 1.25rem; text-align: center; color: var(--white);
+  background:
+    radial-gradient(820px 560px at 80% 12%, rgba(74, 226, 36, 0.12), transparent 60%),
+    radial-gradient(760px 640px at 10% 92%, rgba(31, 70, 160, 0.28), transparent 62%),
+    var(--grad-deep);
+}
+.maintenance-inner { max-width: 540px; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+.maintenance-bolt {
+  width: 72px; height: 72px; margin-bottom: 0.6rem;
+  display: grid; place-items: center; border-radius: 50%;
+  background: rgba(74, 226, 36, 0.12);
+  border: 1px solid rgba(74, 226, 36, 0.4);
+  box-shadow: 0 0 40px -8px rgba(74, 226, 36, 0.45);
+}
+.maintenance h1 {
+  font-family: var(--font-serif); font-size: clamp(2rem, 6vw, 3rem); margin: 0.2rem 0 0.4rem;
+}
+.maintenance p { color: rgba(228, 233, 255, 0.82); font-size: 1.05rem; line-height: 1.6; margin: 0 0 0.6rem; }
+.maintenance-call {
+  display: inline-block; margin-top: 0.4rem; padding: 0.7rem 1.3rem; border-radius: 999px;
+  background: var(--grad-green, linear-gradient(135deg, #4ae224, #36c70f));
+  color: #05230a; font-weight: 700; text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.maintenance-call:hover { transform: translateY(-1px); }
+.maintenance-brand {
+  margin-top: 1.4rem; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(228, 233, 255, 0.6);
+}

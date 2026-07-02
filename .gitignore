@@ -31,3 +31,6 @@ next-env.d.ts
 .vscode/
 .idea/
 Thumbs.db
+
+# admin control service — runtime lock state (server-generated)
+server/state.json
