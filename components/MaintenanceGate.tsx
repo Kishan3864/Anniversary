@@ -57,12 +57,6 @@ export default function MaintenanceGate() {
           <br />
           Full service will be restored as soon as the account is settled.
         </p>
-        <span className="maintenance-note">
-          Please contact your website provider to reactivate this site.
-        </span>
-        <span className="maintenance-brand">
-          Wally Nassif Electrical Contracting Service
-        </span>
       </div>
     </div>
   );
