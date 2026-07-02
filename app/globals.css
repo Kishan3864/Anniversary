@@ -567,28 +567,109 @@ ul { list-style: none; }
   gap: clamp(2rem, 5vw, 4rem); align-items: center;
   position: relative; z-index: 2;
 }
+/* --- "Our Story" anniversary credential card (replaces the plain logo box) --- */
 .legacy-figure {
-  position: relative; border-radius: 5px; overflow: hidden;
-  aspect-ratio: 4 / 5;
+  position: relative; overflow: hidden;
+  border-radius: 18px;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
   background:
-    radial-gradient(circle at 30% 20%, rgba(74, 226, 36, 0.18), transparent 55%),
+    radial-gradient(120% 90% at 15% 10%, rgba(74, 226, 36, 0.16), transparent 55%),
+    radial-gradient(120% 120% at 90% 100%, rgba(9, 9, 216, 0.34), transparent 60%),
     var(--grad-deep);
-  border: 1px solid rgba(74, 226, 36, 0.28);
+  border: 1px solid rgba(74, 226, 36, 0.26);
+  box-shadow: 0 30px 70px -30px rgba(4, 4, 42, 0.7);
+  isolation: isolate;
+}
+/* faint electrical grid + rising glow + oversized "50" watermark for depth */
+.legacy-figure-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.55; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(143, 143, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 143, 255, 0.08) 1px, transparent 1px);
+  background-size: 34px 34px;
+  -webkit-mask-image: radial-gradient(circle at 50% 28%, #000 18%, transparent 78%);
+  mask-image: radial-gradient(circle at 50% 28%, #000 18%, transparent 78%);
+}
+.legacy-figure-glow {
+  position: absolute; inset: auto -20% -30% -20%; height: 62%; z-index: 0; pointer-events: none;
+  background: radial-gradient(60% 100% at 50% 100%, rgba(74, 226, 36, 0.18), transparent 70%);
+}
+.legacy-figure-mark {
+  position: absolute; right: -0.4rem; bottom: -3.4rem; z-index: 0;
+  font-family: var(--font-serif); font-weight: 700; font-size: 13rem; line-height: 1;
+  color: rgba(212, 175, 55, 0.12); pointer-events: none; user-select: none;
+}
+
+.legacy-card {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 0.85rem;
+  text-align: center;
+}
+/* gold anniversary badge pill (from the 50-year brand mark) */
+.legacy-anniv-pill {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  padding: 0.42rem 1.05rem; border-radius: 999px;
+  font-family: var(--font-sans); font-weight: 700;
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: #f6e29a;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  box-shadow: 0 8px 22px -12px rgba(212, 175, 55, 0.5), inset 0 0 14px rgba(212, 175, 55, 0.08);
+}
+.legacy-anniv-pill i { color: #f3d778; font-style: normal; font-size: 0.82rem; line-height: 0; }
+
+/* "What We Power" — a showcase of the services the company actually delivers */
+.legacy-eyebrow {
+  font-family: var(--font-sans); font-weight: 700;
+  font-size: 0.74rem; letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--green-400);
+}
+.legacy-heading {
+  margin: 0; max-width: 22ch;
+  font-family: var(--font-serif); font-weight: 700;
+  font-size: clamp(1.25rem, 3vw, 1.6rem); line-height: 1.15;
+  color: #ffffff;
+}
+.legacy-heading .gold-text { font-weight: 700; }
+
+.legacy-power {
+  list-style: none; margin: 0.2rem 0 0; padding: 0;
+  width: 100%; max-width: 340px; text-align: left;
+}
+.legacy-power li {
+  display: flex; align-items: center; gap: 0.85rem;
+  padding: 0.72rem 0.25rem;
+  font-size: 0.98rem; font-weight: 600; color: #eef2fb;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.legacy-power li:last-child { border-bottom: none; }
+.legacy-power li:hover { color: #ffffff; transform: translateX(4px); }
+.legacy-power-ic {
+  flex: none; width: 32px; height: 32px; border-radius: 9px;
   display: grid; place-items: center;
+  background: rgba(74, 226, 36, 0.12);
+  border: 1px solid rgba(74, 226, 36, 0.32);
+  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
-.legacy-figure .logo-chip {
-  background: #fff; border-radius: 14px; padding: 1.4rem 1.6rem;
-  box-shadow: 0 20px 50px -20px rgba(0,0,0,0.5);
+.legacy-power li:hover .legacy-power-ic {
+  background: rgba(74, 226, 36, 0.22);
+  border-color: rgba(74, 226, 36, 0.55);
+  box-shadow: 0 0 16px -4px rgba(74, 226, 36, 0.6);
 }
-.legacy-figure .logo-chip img { width: min(280px, 60vw); }
-.legacy-figure .badge-float {
-  position: absolute; bottom: 1.2rem; left: 1.2rem;
-  background: rgba(4, 4, 42, 0.8); backdrop-filter: blur(6px);
-  border: 1px solid rgba(74, 226, 36, 0.4);
-  border-radius: 4px; padding: 0.9rem 1.2rem;
+
+.legacy-figure-foot {
+  width: 100%; max-width: 340px; margin-top: 0.5rem;
+  padding-top: 0.9rem; border-top: 1px solid rgba(74, 226, 36, 0.25);
+  display: flex; flex-direction: column; align-items: center; gap: 0.55rem;
 }
-.legacy-figure .badge-float b { font-family: var(--font-serif); font-size: 1.6rem; color: var(--green-400); display: block; }
-.legacy-figure .badge-float span { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+.legacy-lic {
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(228, 233, 255, 0.72);
+}
+.legacy-ribbon { text-align: center; }
+.legacy-ribbon b { display: block; font-family: var(--font-serif); font-size: 1.5rem; color: var(--green-400); }
+.legacy-ribbon span { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(228, 233, 255, 0.7); }
 .legacy h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); margin: 0.9rem 0 1.3rem; color: var(--blue-500); }
 .legacy p { color: var(--muted); margin-bottom: 1.1rem; max-width: 58ch; }
 .legacy .signature { font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; color: var(--blue-500); margin-top: 1.6rem; }

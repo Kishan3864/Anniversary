@@ -1,3 +1,4 @@
+import Bolt from "./Bolt";
 import Reveal from "./Reveal";
 
 export default function Legacy() {
@@ -5,13 +6,55 @@ export default function Legacy() {
     <section className="section legacy" id="legacy">
       <div className="container legacy-grid">
         <Reveal className="legacy-figure">
-          <div className="logo-chip">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/wally-nassif-logo.png" alt="Wally Nassif Electrical Contracting Service logo" width={866} height={274} />
-          </div>
-          <div className="badge-float">
-            <b>Since 1976</b>
-            <span>The Trusted Electrician</span>
+          <span className="legacy-figure-grid" aria-hidden="true" />
+          <span className="legacy-figure-glow" aria-hidden="true" />
+          <span className="legacy-figure-mark" aria-hidden="true">50</span>
+
+          <div className="legacy-card">
+            <span className="legacy-anniv-pill">
+              <i aria-hidden="true">★</i> 1976 – 2026 · 50 Years <i aria-hidden="true">★</i>
+            </span>
+
+            <h3 className="legacy-heading">
+              <span className="gold-text">Half a Century</span> of Electrical Excellence
+            </h3>
+
+            <span className="legacy-eyebrow">What We Power</span>
+
+            <ul className="legacy-power">
+              <li>
+                <span className="legacy-power-ic"><Bolt width={12} height={19} /></span>
+                New Construction &amp; Additions
+              </li>
+              <li>
+                <span className="legacy-power-ic"><Bolt width={12} height={19} /></span>
+                Panel Upgrades &amp; Safety
+              </li>
+              <li>
+                <span className="legacy-power-ic"><Bolt width={12} height={19} /></span>
+                Generator Installation
+              </li>
+              <li>
+                <span className="legacy-power-ic"><Bolt width={12} height={19} /></span>
+                EV Charger Installation
+              </li>
+              <li>
+                <span className="legacy-power-ic"><Bolt width={12} height={19} /></span>
+                Industrial &amp; Commercial Power
+              </li>
+              <li>
+                <span className="legacy-power-ic"><Bolt width={12} height={19} /></span>
+                24/7 Service &amp; Repairs
+              </li>
+            </ul>
+
+            <div className="legacy-figure-foot">
+              <span className="legacy-lic">Licensed Master Electrical Contractor · EC13001410</span>
+              <div className="legacy-ribbon">
+                <b>Since 1976</b>
+                <span>The Trusted Electrician</span>
+              </div>
+            </div>
           </div>
         </Reveal>
 
