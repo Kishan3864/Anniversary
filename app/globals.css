@@ -108,7 +108,7 @@ ul { list-style: none; }
   border-radius: 2px;
 }
 .eyebrow.center { justify-content: center; }
-.eyebrow.on-dark { color: var(--green-300); }
+.eyebrow.on-dark { color: var(--green-400); }
 
 /* Green highlight text (use on dark backgrounds) */
 .green-text {
@@ -168,7 +168,7 @@ ul { list-style: none; }
   border-color: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(4px);
 }
-.btn-outline:hover { border-color: var(--green-400); color: var(--green-300); }
+.btn-outline:hover { border-color: var(--green-400); color: var(--green-400); }
 
 .btn-ghost {
   background: transparent;
@@ -354,7 +354,7 @@ ul { list-style: none; }
   font-weight: 700;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--green-300);
+  color: var(--green-400);
 }
 .hero h1 {
   font-size: clamp(2.4rem, 5.4vw, 4.3rem);
@@ -375,7 +375,17 @@ ul { list-style: none; }
   margin-bottom: 1.8rem;
 }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 0.85rem; }
-.hero-emblem-wrap { display: flex; justify-content: center; align-items: center; position: relative; }
+/* Self-contained square "stage" that holds the flag + sparkles + emblem.
+   It never grows wider than its column (max-width + width:100%), so the
+   three layers always scale together and can't spill onto the hero text. */
+.hero-emblem-wrap {
+  display: flex; justify-content: center; align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1;
+}
 .hero-emblem-glow {
   position: absolute; inset: -10%;
   /* background: radial-gradient(circle, rgb(144 112 38 / 43%), transparent 65%); */
@@ -386,6 +396,56 @@ ul { list-style: none; }
   0%, 100% { opacity: 0.5; transform: scale(0.96); }
   50% { opacity: 0.9; transform: scale(1.04); }
 }
+
+/* ---- Waving American flag behind the anniversary emblem (emblem unchanged) ---- */
+.hero-emblem-glow { z-index: 2; }
+/* Layer 3 (top): the emblem sits ON TOP of the flag + sparkles and scales
+   with the stage so it stays centred on the flag at every screen size. */
+.hero-emblem-wrap .emblem { position: relative; z-index: 4; width: 60%; height: auto; }
+
+/* Layer 1 (bottom): the waving flag, centred in the stage */
+.hero-flag {
+  position: absolute; inset: 0; z-index: 1;
+  pointer-events: none;
+}
+.hero-flag-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* flag is absolutely centred so it stays concentric with the emblem */
+.hero-flag-img {
+  position: absolute; left: 50%; top: 50%;
+  width: 96%; /* sized to the stage, never to the viewport → no overflow */
+  filter: url(#heroFlagWave) drop-shadow(0 12px 30px rgba(0, 0, 0, 0.5));
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 64%, rgba(0,0,0,0.85) 84%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, #000 64%, rgba(0,0,0,0.85) 84%, transparent 100%);
+  opacity: 0.96;
+  animation: flag-sway 7s ease-in-out infinite;
+  transform-origin: center;
+}
+.hero-flag-img svg { width: 100%; height: auto; display: block; }
+@keyframes flag-sway {
+  0%   { transform: translate(-50%, -50%) perspective(720px) rotateY(-6deg) rotateZ(-0.9deg) translateY(-5px); }
+  50%  { transform: translate(-50%, -50%) perspective(720px) rotateY(6deg) rotateZ(0.9deg) translateY(5px); }
+  100% { transform: translate(-50%, -50%) perspective(720px) rotateY(-6deg) rotateZ(-0.9deg) translateY(-5px); }
+}
+/* Layer 2 (middle): two sparkle canvases that fill the stage and sit ABOVE the
+   flag but BELOW the emblem. They're contained to the stage so sparkles rise
+   bottom→top within it and never spill onto the surrounding text.
+   NB: <canvas> is a replaced element — `inset` alone won't stretch it (it keeps
+   its intrinsic 300x150), so width/height are set explicitly. */
+.hero-flag-sparks-back,
+.hero-flag-sparks {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.hero-flag-sparks-back { z-index: 2; filter: blur(0.5px); }
+.hero-flag-sparks { z-index: 3; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-flag-img { animation: none; filter: none; }
+  .hero-flag-sparks-back, .hero-flag-sparks { display: none; }
+}
+
 .hero-trust {
   position: relative; z-index: 3;
   display: flex; flex-wrap: wrap; gap: 2.4rem;
@@ -393,7 +453,7 @@ ul { list-style: none; }
   border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 .hero-trust div { display: flex; flex-direction: column; }
-.hero-trust b { font-family: var(--font-serif); font-size: 1.45rem; color: var(--green-300); }
+.hero-trust b { font-family: var(--font-serif); font-size: 1.45rem; color: var(--green-400); }
 .hero-trust span { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(228, 233, 255, 0.72); }
 
 .scroll-cue {
@@ -527,7 +587,7 @@ ul { list-style: none; }
   border: 1px solid rgba(74, 226, 36, 0.4);
   border-radius: 4px; padding: 0.9rem 1.2rem;
 }
-.legacy-figure .badge-float b { font-family: var(--font-serif); font-size: 1.6rem; color: var(--green-300); display: block; }
+.legacy-figure .badge-float b { font-family: var(--font-serif); font-size: 1.6rem; color: var(--green-400); display: block; }
 .legacy-figure .badge-float span { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
 .legacy h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); margin: 0.9rem 0 1.3rem; color: var(--blue-500); }
 .legacy p { color: var(--muted); margin-bottom: 1.1rem; max-width: 58ch; }
@@ -564,7 +624,7 @@ ul { list-style: none; }
 .tl-item.left .tl-dot { right: -10px; }
 .tl-item.right .tl-dot { left: -10px; }
 .tl-dot.final {
-  background: var(--grad-green); border-color: var(--green-300);
+  background: var(--grad-green); border-color: var(--green-400);
   box-shadow: 0 0 0 6px rgba(74, 226, 36, 0.25), 0 0 22px 4px rgba(74, 226, 36, 0.7);
 }
 
@@ -678,7 +738,7 @@ ul { list-style: none; }
 }
 .cta-band h2 { font-size: clamp(2rem, 5vw, 3.1rem); margin-bottom: 1.1rem; }
 .cta-band p { max-width: 64ch; margin: 0 auto 1rem; color: rgba(228,233,255,0.88); font-size: 1.05rem; }
-.cta-band .closing { font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; color: var(--green-300); margin-top: 1.4rem; }
+.cta-band .closing { font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; color: var(--green-400); margin-top: 1.4rem; }
 .cta-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.85rem; margin-top: 2rem; }
 .cta-phone {
   margin-top: 1.8rem; display: inline-flex; align-items: center; gap: 0.7rem;
@@ -763,10 +823,15 @@ ul { list-style: none; }
   }
 }
 
+/* Stack the hero into one column early enough that the flag/emblem stage never
+   has to squeeze beside the text — it moves above it, centred. */
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; padding-block: 10.5rem 3rem; gap: 2.5rem; }
+  .hero-emblem-wrap { order: -1; }
+}
+
 /* Large tablet / small laptop */
 @media (max-width: 980px) {
-  .hero-inner { grid-template-columns: 1fr; padding-block: 8.5rem 3rem; gap: 2.5rem; }
-  .hero-emblem-wrap { order: -1; }
   .legacy-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; }
   .topbar .tb-left { gap: 0.9rem; font-size: 0.72rem; }

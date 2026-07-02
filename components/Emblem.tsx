@@ -20,6 +20,7 @@ export default function Emblem({
   const green = `green-${id}`;
   const greenSoft = `greenSoft-${id}`;
   const gold = `gold-${id}`;
+  const disc = `disc-${id}`;
   const topArc = `topArc-${id}`;
   const bottomArc = `bottomArc-${id}`;
 
@@ -50,7 +51,14 @@ export default function Emblem({
         </linearGradient>
         <path id={topArc} d="M 30 100 A 70 70 0 0 1 170 100" fill="none" />
         <path id={bottomArc} d="M 32 100 A 68 68 0 0 0 168 100" fill="none" />
+        <radialGradient id={disc} cx="50%" cy="44%" r="62%">
+          <stop offset="0%" stopColor="#12285f" />
+          <stop offset="100%" stopColor="#0a1636" />
+        </radialGradient>
       </defs>
+
+      {/* Solid navy disc behind the seal (keeps the flag from showing through) */}
+      <circle cx="100" cy="100" r="95" fill={`url(#${disc})`} />
 
       {/* Outer + inner rings */}
       <g className={spin ? "spin-ring" : ""}>

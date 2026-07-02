@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import Bolt from "./Bolt";
 import Emblem from "./Emblem";
+import HeroFlag from "./HeroFlag";
 
 export default function Hero() {
   const [atTop, setAtTop] = useState(true);
@@ -76,8 +77,9 @@ export default function Hero() {
         </div>
 
         <div className="hero-emblem-wrap">
-          <div className="hero-emblem-glow" aria-hidden="true" />
-          <Emblem size={340} id="hero" />
+          <HeroFlag />
+          {/* <div className="hero-emblem-glow" aria-hidden="true" /> */}
+          <Emblem size={250} id="hero" />
         </div>
       </div>
 
