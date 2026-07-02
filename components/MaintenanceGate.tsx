@@ -2,15 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-import Bolt from "./Bolt";
-
 const API = "/admin-api";
 
 /**
- * Reads the maintenance lock status and, when the site is locked, covers it with
- * an "Under Maintenance" screen for every visitor. The /admin page is never
- * gated (so the owner can always get in to unlock). Fails OPEN — if the control
- * service is unreachable, the site stays visible.
+ * Reads the lock status and, when the site is locked, covers it with an
+ * on-hold notice for every visitor. The /admin page is never gated (so the
+ * owner can always unlock). Fails OPEN — if the control service is unreachable,
+ * the site stays visible.
  */
 export default function MaintenanceGate() {
   const [locked, setLocked] = useState(false);
@@ -45,18 +43,23 @@ export default function MaintenanceGate() {
   return (
     <div className="maintenance" role="alert" aria-live="assertive">
       <div className="maintenance-inner">
-        <span className="maintenance-bolt" aria-hidden="true">
-          <Bolt width={22} height={36} />
+        <span className="maintenance-icon" aria-hidden="true">
+          <svg width="30" height="34" viewBox="0 0 24 24" fill="none">
+            <rect x="4" y="10" width="16" height="11" rx="2.5" stroke="#f6e29a" strokeWidth="1.7" />
+            <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#f6e29a" strokeWidth="1.7" strokeLinecap="round" />
+            <circle cx="12" cy="15" r="1.5" fill="#f6e29a" />
+            <path d="M12 16.3v2.2" stroke="#f6e29a" strokeWidth="1.7" strokeLinecap="round" />
+          </svg>
         </span>
-        <h1>Under Maintenance</h1>
+        <h1>Website On Hold</h1>
         <p>
-          Our website is temporarily down for scheduled maintenance.
+          This website is temporarily unavailable pending payment.
           <br />
-          We&apos;ll be back online shortly — thank you for your patience.
+          Full service will be restored as soon as the account is settled.
         </p>
-        <a className="maintenance-call" href="tel:+15615822600">
-          Need urgent help? Call (561) 582-2600
-        </a>
+        <span className="maintenance-note">
+          Please contact your website provider to reactivate this site.
+        </span>
         <span className="maintenance-brand">
           Wally Nassif Electrical Contracting Service
         </span>
